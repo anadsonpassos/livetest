@@ -1,7 +1,7 @@
 pipeline {
     agent{
         docker {
-            image 'ruby'
+            image 'anadsonpassos/rubywd'
         }
     }
 
@@ -15,6 +15,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Running regression tests'
+                sh 'bundle exec cucumber -p americanas -p ci -t @regressao'
             }
         }
         stage('UAT') {
