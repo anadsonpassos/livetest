@@ -1,15 +1,15 @@
 pipeline {
     agent{
         docker {
-			image 'ruby'
-		}
-	}
+            image 'ruby'
+        }
+    }
 
     stages {
         stage('Build') {
             steps {
                 echo 'Building or Resolve Dependencies!'
-				sh 'bundle install'
+                sh 'bundle install'
             }
         }
         stage('Test') {
