@@ -1,0 +1,36 @@
+class App
+
+  attr_accessor :store_id
+  
+  def initialize(store_id)
+    @store_id = set_store_id(store_id)
+  end
+  
+  def set_store_id(store_id)
+    aux = store_id[0]
+    r = store_id.downcase
+    r[0] = aux
+    return r
+  end
+    
+  def comum
+    Comum.new
+  end
+
+  def login
+    Kernel.const_get('Login' + @store_id).new
+  end
+
+  def cadastro
+    Kernel.const_get('Cadastro' + @store_id).new
+  end
+
+  def busca
+    Kernel.const_get('Busca' + @store_id).new
+  end
+  
+  def carrinho
+    Kernel.const_get('Carrinho' + @store_id).new
+  end
+  
+end

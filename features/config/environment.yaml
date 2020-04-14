@@ -1,0 +1,9 @@
+HOME:
+  DEV:
+    url: 'http://{store_id}-dev.com.br/'
+  HOM: 
+    url: 'http://{store_id}.com.br/'
+  PRD: 
+    url: 'http://www.{store_id}.prod.com.br/'
+  CI:
+    url: 'http://{store_id}.com.br/'
