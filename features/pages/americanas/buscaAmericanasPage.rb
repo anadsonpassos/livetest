@@ -2,7 +2,7 @@ class BuscaAmericanas < SitePrism::Page
   @@store_id = 'AMERICANAS'
 
   # input
-  element :input_barra_de_busca, :xpath, '//*[@id="h_search-input"]'
+  element :input_barra_de_busca, :css, 'h_search-input'
 
   # label
   element :label_resultado_busca, :css, 'div:nth-child(1) > div > div > h1'
