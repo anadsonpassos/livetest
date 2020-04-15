@@ -1,0 +1,5 @@
+DAILUS:
+  sserv:
+    cadastro:
+      sucesso: 'Usuário criado com sucesso, já é possivel efetuar o login.'
+      negativo: ''

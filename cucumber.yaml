@@ -4,9 +4,8 @@ regressao_ci: --no-source --color --format pretty --format progress -p headless 
 json: --format json --out=reports/report.json
 html: --format html --out=reports/report.html
 ## cancela imediatamente a execução dos testes, se o primeiro cenário falhar  --fail-fast
- 
-#finago: -p default store_id='FINAGO' cart_prefix='cart' -t '@finago'
-americanas: -p default store_id='AMERICANAS' cart_prefix='secure' -t '@americanas'
+
+dailus: -p default store_id='DAILUS' cart_prefix='secure' -t '@dailus'
 
 # profile de Homologação
 hom: env='HOM'

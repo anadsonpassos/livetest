@@ -5,4 +5,4 @@ url: "http://localhost:4444/wd/hub"
 remote: false
 default_max_wait_time: 40
 verify_version: false
-# headless: true  # Deixar como true para funcionar também com headless (docker = true)
+headless: true  # Deixar como true para funcionar também com headless (docker = true)

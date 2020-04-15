@@ -9,11 +9,19 @@ require "open-uri"
 require "capybara/rspec"
 require "rspec"
 
+# RSpec.configure do |config| 
+#   config.include Capybara::DSL  
+#   config.include Capybara::RSpecMatchers
+# end
+
 include Capybara::DSL
 include RSpec::Matchers
+# World(Capybara::DSL)
+# World(Capybara::RSpecMatchers)
 
 ENVIRONMENT = (YAML.load_file('./features/config/environment.yaml'))
 MASS = (YAML.load_file('./features/fixtures/mass.yaml'))
+MSG = (YAML.load_file('./features/fixtures/msg.yaml'))
 CONFIG = (YAML.load_file('./features/config/config.yaml'))
 
 Capybara.register_driver :selenium do |app| 
@@ -64,4 +72,5 @@ Capybara.configure do |config|
         Capybara.default_driver = driver
         Capybara.javascript_driver = driver
         Capybara.default_max_wait_time = CONFIG['default_max_wait_time']
+        #Capybara.page.driver.browser.manage.window.maximize if driver == :chrome
 end
