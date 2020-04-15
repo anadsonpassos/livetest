@@ -1,13 +1,3 @@
-# source "https://rubygems.org"
-
-# gem 'capybara'
-# gem 'cucumber'
-# gem 'rspec'
-# gem 'selenium-webdriver'
-# gem 'site_prism'
-# gem 'pry'
-# gem 'page-object'
-
 source 'http://rubygems.org'
 
 gem 'cucumber'

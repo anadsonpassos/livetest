@@ -1,18 +1,4 @@
 DAILUS:
-  cliente_1:
-    email: 'nolelo1930@provamail.com'
-    senha: 'D123456s'
-
-  cliente_2:
-    email_restart: 'admin@dailus.com'
-    nova_senha: 'Dailus123'
-    confirmar_senha: 'Dailus123'
-
-  dados_invalidos:
-    email_restart: 'admin@dailus.com'
-    nova_senha_invalida: 'D123'
-    confirmar_senha_invalida: 'Dailus123'
-    
   produtos:
     produto_valido_1:
       nome: 'Corretivo Soft New'
@@ -25,7 +11,3 @@ DAILUS:
     produto_invalido_1: 
       nome: 'Playstation - Fifa20'
       preco: '179,90'
-
-  meios_de_pagamento:
-    bill: "Boleto bancário"
-    credit: "Cartão de crédito"

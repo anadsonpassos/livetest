@@ -25,14 +25,6 @@ class App
     Kernel.const_get('Busca' + @store_id).new
   end
 
-  def login
-    Kernel.const_get('Login' + @store_id).new
-  end
-
-  def cadastro
-    Kernel.const_get('Cadastro' + @store_id).new
-  end
-
   def carrinho
     Kernel.const_get('Carrinho' + @store_id).new
   end
