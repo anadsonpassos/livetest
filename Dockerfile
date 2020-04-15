@@ -5,27 +5,16 @@ FROM ruby:2.6.5-stretch
 RUN echo 'APT::Get::Assume-Yes "true";' > /etc/apt/apt.conf.d/anadsonpassos \
   && echo 'DPkg::Options "--force-confnew";' >> /etc/apt/apt.conf.d/anadsonpassos
 
-# Make sure PATH includes ~/.local/bin
-# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=839155
-# This only works for root. The anadsonpassos user is done near the end of this Dockerfile
 RUN echo 'PATH="$HOME/.local/bin:$PATH"' >> /etc/profile.d/user-local-path.sh
 
-# Debian Jessie is EOL'd and original repos don't work.
-# Switch to the archive mirror until we can get people to
-# switch to Stretch.
 RUN if grep -q Debian /etc/os-release && grep -q jessie /etc/os-release; then \
 	rm /etc/apt/sources.list \
     && echo "deb http://archive.debian.org/debian/ jessie main" >> /etc/apt/sources.list \
     && echo "deb http://security.debian.org/debian-security jessie/updates main" >> /etc/apt/sources.list \
 	; fi
 
-# Make sure PATH includes ~/.local/bin
-# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=839155
-# This only works for root. The anadsonpassos user is done near the end of this Dockerfile
 RUN echo 'PATH="$HOME/.local/bin:$PATH"' >> /etc/profile.d/user-local-path.sh
 
-# man directory is missing in some base images
-# https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=863199
 RUN apt-get update \
   && mkdir -p /usr/share/man/man1 \
   && apt-get install -y \
@@ -93,13 +82,6 @@ RUN CHROME_VERSION="$(google-chrome --version)" \
     && sudo mv chromedriver /usr/local/bin/chromedriver \
     && sudo chmod +x /usr/local/bin/chromedriver \
     && chromedriver --version
-
-# Install Postgres
-
-RUN wget --no-check-certificate -qO - https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add - \
-    && sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main" >> /etc/apt/sources.list.d/pgdg.list' \
-    && sudo apt-get update \
-    && sudo apt-get install postgresql postgresql-contrib
 
 # start xvfb automatically to avoid needing to express
 ENV DISPLAY :99
