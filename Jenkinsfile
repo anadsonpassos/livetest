@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'quarentena/rubywd'
+            image 'anadsonpassos/quarentenarubywd'
         }
     }
     
